@@ -1,8 +1,7 @@
 # gopl
 gopl learning and implementation
 
-### This repository is to learn Go programming language and mainly based on the [Go语言圣经](https://github.com/gopl-zh/gopl-zh.github.com.
-)
+### This repository is to learn Go programming language and mainly based on the [Go语言圣经](https://github.com/gopl-zh/gopl-zh.github.com.)
 
 ** Simple Tour of Go **
 

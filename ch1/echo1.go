@@ -5,6 +5,7 @@ package main
 import (
 	"fmt"
 	"os"
+	// "strings"
 )
 
 func main() {
@@ -28,6 +29,8 @@ func main() {
 	// }
 
 	// 2.
+
+	// 每次循环迭代，range产生一对值；索引以及在该索引处的元素值。
 	for _, arg := range os.Args[1:] {
 		s += sep + arg
 		sep = " "
@@ -43,7 +46,7 @@ func main() {
 	/*
 		range:
 			0
-			107 Unicode
+			107 // Unicode
 			1
 			101
 			2
@@ -54,6 +57,7 @@ func main() {
 
 	// 3.
 	// fmt.Println(strings.Join(os.Args[1:], " "))
+	fmt.Println(os.Args[1:])
 
 	fmt.Println("The length of the Arguments is: ", len(os.Args))
 	fmt.Println("The first argument is: ", os.Args[0])

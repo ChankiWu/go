@@ -14,6 +14,7 @@ func main() {
 	counts := make(map[string]int)
 	input := bufio.NewScanner(os.Stdin)
 
+	// Scan函数在读到一行时返回true，不再有输入时返回false。
 	for input.Scan(){
 		counts[input.Text()]++
 	}

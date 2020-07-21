@@ -23,7 +23,13 @@ func main() {
 	fmt.Printf("%.2fs elapsed\n", time.Since(start).Seconds())
 }
 
-func fetch(url string, ch chan<- string) {
+/*
+var readOnlyChan <-chan int            // 只读chan
+var writeOnlyChan chan<- int           // 只写chan
+var mychan  chan int                     //读写channel
+*/
+
+func fetch(url string, ch chan string) {
 	start := time.Now()
 	resp, err := http.Get(url)
 	if err != nil {
@@ -40,6 +46,7 @@ func fetch(url string, ch chan<- string) {
 		return
 	}
 	secs := time.Since(start).Seconds()
+	// `Sprintf` 则格式化并返回一个字 符串而不带任何输出。
 	ch <- fmt.Sprintf("%.2fs  %7d  %s", secs, nbytes, url)
 }
 

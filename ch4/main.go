@@ -20,12 +20,17 @@ func array(){
 	// Print the indices and elements.
 	for i, v := range a {
 		fmt.Printf("%d %d\n", i, v)
+		/* output
+		0 1
+		1 2
+		2 3
+		*/
 	}
 
 	// Print the elements only.
-	for _, v := range a {
-		fmt.Printf("%d\n", v)
-	}
+	// for _, v := range a {
+	// 	fmt.Printf("%d\n", v)
+	// }
 
 	q := [...]int{1, 2, 3}
 	fmt.Printf("%T\n", q) // "[3]int"
@@ -67,6 +72,7 @@ func makeMap(){
 
 	for name, age := range ages {
 		fmt.Printf("%s\t%d\n", name, age)
+		// output: charlie 34
 	}
 }
 
@@ -107,7 +113,7 @@ func main(){
 
 	p := Point{1, 2}
 	pp := &Point{1, 2} // equals to pp := new(Point); *pp = Point{1, 2}
-	fmt.Println(dilbert) // {0   0001-01-01 00:00:00 +0000 UTC  100 0}
+	fmt.Println(dilbert) // default value {0   0001-01-01 00:00:00 +0000 UTC  100 0}
 	fmt.Println(p)	// {1 2}
 	fmt.Println(pp) // &{1 2}
 } 

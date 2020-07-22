@@ -64,6 +64,6 @@ func basename2(s string) string {
 }
 
 func main() {
-	fmt.Println(basename2("c:/users/gopl.exe"), Thursday)
+	fmt.Println(basename2("c:/users/gopl.exe"), Thursday, GiB)
 }
 

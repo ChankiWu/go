@@ -6,10 +6,13 @@ import (
 )
 
 func main() {
+	// c-connection
 	c, err := redis.Dial("tcp", "127.0.0.1:6379")
 	if err != nil {
 		fmt.Println("Connect to redis error", err)
 		return
+	} else {
+		fmt.Println("连接redis成功！")
 	}
 
 	fmt.Println("Connect OK.")
@@ -32,9 +35,46 @@ func main() {
 	}
 
 	/*
-	console output:
-		Connect OK.
-		Do return: OK
-		Get mykey: chanki
+		console output:
+			Connect OK.
+			Do return: OK
+			Get mykey: chanki
 	*/
+
+	/*
+		批量处理命令即redis对应的命令：
+
+		mget(适用于string类型)
+		mset(适用于string类型)
+		hmget(适用于hash类型)
+		hmset(适用于hash类型)
+	*/
+
+	key := make([]string, 0)
+	value := make([]string, 0)
+
+	for i := 0; i < 5; i++ {
+		var tmp string = "a"
+		key = append(key, tmp)
+		tmp += "b"
+		value = append(value, "toutiao")
+	}
+
+	res, merr := c.Do("MSET", key, value)
+	if merr != nil {
+		fmt.Println("redis set failed:", merr)
+	} else {
+		// OK
+		fmt.Printf("redis mset: %s", res)
+		fmt.Println()
+	}
+
+	val, merr := c.Do("MGET", key)
+	if merr != nil {
+		fmt.Println("redis get failed:", merr)
+	} else {
+		fmt.Printf("redis mget: %s", val)
+		fmt.Println()
+	}
+
 }

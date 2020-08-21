@@ -53,6 +53,13 @@ func main() {
 	key := make([]string, 0)
 	value := make([]string, 0)
 
+	vec := make([]int, 3)
+	for i :=0; i < 3; i++ {
+		vec = append(vec, i)
+	}
+	fmt.Println(vec)
+	// [0 0 0 0 1 2]
+
 	for i := 0; i < 5; i++ {
 		var tmp string = "a"
 		key = append(key, tmp)
@@ -60,7 +67,7 @@ func main() {
 		value = append(value, "toutiao")
 	}
 
-	res, merr := c.Do("MSET", key, value)
+	res, merr := c.Do("MSET", key, value, "EX", "10")
 	if merr != nil {
 		fmt.Println("redis set failed:", merr)
 	} else {
